@@ -1,5 +1,3 @@
-# Dev Container Features: Borland502
-
 ## Overview
 
 This is a feature bundle for various languages tuned to my particular likes in development using the homebrew package installer feature in a loop
