@@ -34,8 +34,7 @@ jobs:
     strategy:
       matrix:
         features:
-          - color
-          - hello
+          - nodejs-dev
     steps:
       - uses: actions/checkout@v3
 
