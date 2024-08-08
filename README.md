@@ -1,6 +1,7 @@
 ## Overview
 
-This is a feature bundle for various languages tuned to my particular likes in development using the homebrew package installer feature in a loop
+This is a feature bundle for various languages tuned to my particular likes in development using the homebrew package installer feature in a loop. Extensions then take that model to whatever
+language is the focus (e.g. nodejs, python, etc)
 
 ```bash
 for feature in "${features[@]}"; do
@@ -11,11 +12,12 @@ for feature in "${features[@]}"; do
       --option package="$feature" --option version="$VERSION"
 done
 ```
+
 ### `nodejs-dev`
 
 A hyper-customized nodejs development image
 
-## Example Usage
+#### Nodejs Usage
 
 ```json
 "features": {
@@ -23,4 +25,14 @@ A hyper-customized nodejs development image
 }
 ```
 
+### Python Development Workspace
 
+A hyper-customized python image
+
+#### Python Usage
+
+```json
+"features": {
+    "ghcr.io/devcontainers/feature-starter/python-dev": {}
+}
+```

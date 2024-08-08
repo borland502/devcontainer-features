@@ -12,12 +12,19 @@ source ./library_scripts.sh
 ensure_nanolayer nanolayer_location "v0.5.6"
 
 declare -ar brew_features=(
-  npm
+  pyenv
+  python3
+  pipx
 )
 
 source ./active_os.sh && active_operating_system_uname
 
 for feature in "${brew_features[@]}"; do
+  if [[ $(command -v $feature) ]]; then
+    echo "skipping installed feature $feature"
+    continue
+  fi
+
   $nanolayer_location \
       install \
       devcontainer-feature \
@@ -25,17 +32,30 @@ for feature in "${brew_features[@]}"; do
       --option package="$feature" --option version="$VERSION"
 done
 
-declare -ar npm_features=(
-  nx
-  express-generator
-  express-generator-typescript
+declare -ar pipx_features=(
+  bandit
+  cookiecutter
+  cruft
+  djlint
+  jinja2-cli
+  nox
+  playwright
+  pyright
+  pytest
+  pyupgrade
+  poetry
 )
 
-for feature in "${npm_features[@]}"; do
+for feature in "${pipx_features[@]}"; do
+  if [[ $(command -v $feature) ]]; then
+    echo "skipping installed feature $feature"
+    continue
+  fi
+
   $nanolayer_location \
       install \
       devcontainer-feature \
-      "ghcr.io/devcontainers-contrib/features/npm-package:1.0.3" \
+      "ghcr.io/devcontainers-contrib/features/pipx-package:1.1.7" \
       --option package="$feature" --option version="$VERSION"
 done
 

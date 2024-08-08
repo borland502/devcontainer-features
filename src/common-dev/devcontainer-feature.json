@@ -4,6 +4,8 @@
 	"version": "1.0.1",
 	"description": "A feature to establish a nodejs developer workspace",
 	"installsAfter": [
-		"ghcr.io/devcontainer-features/common-dev"
+		"ghcr.io/devcontainers/features/common-utils",
+		"ghcr.io/meaningful-ooo/devcontainer-features/homebrew",
+		"ghcr.io/devcontainers-contrib/features/homebrew-package"
 	]
 }
