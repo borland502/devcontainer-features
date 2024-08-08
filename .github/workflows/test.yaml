@@ -13,8 +13,9 @@ jobs:
     strategy:
       matrix:
         features:
-          - color
-          - hello
+          - common-dev
+          - nodejs-dev
+          - python-dev
         baseImage:
           - debian:latest
           - ubuntu:latest
@@ -34,7 +35,9 @@ jobs:
     strategy:
       matrix:
         features:
+          - common-dev
           - nodejs-dev
+          - python-dev
     steps:
       - uses: actions/checkout@v3
 
