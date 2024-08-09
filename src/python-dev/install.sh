@@ -11,27 +11,6 @@ source ./library_scripts.sh
 # of the script
 ensure_nanolayer nanolayer_location "v0.5.6"
 
-declare -ar brew_features=(
-  pyenv
-  python3
-  pipx
-)
-
-source ./active_os.sh && active_operating_system_uname
-
-for feature in "${brew_features[@]}"; do
-  if [[ $(command -v $feature) ]]; then
-    echo "skipping installed feature $feature"
-    continue
-  fi
-
-  $nanolayer_location \
-      install \
-      devcontainer-feature \
-      "ghcr.io/devcontainers-contrib/features/homebrew-package:1.0.7" \
-      --option package="$feature" --option version="$VERSION"
-done
-
 declare -ar pipx_features=(
   bandit
   cookiecutter

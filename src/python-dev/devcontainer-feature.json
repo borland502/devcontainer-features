@@ -1,9 +1,10 @@
 {
 	"name": "Python Development Workspace",
 	"id": "python-dev",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "A feature to establish a python developer workspace",
 	"installsAfter": [
+		"ghcr.io/devcontainers/features/python",		
 		"ghcr.io/devcontainer-features/common-dev"
 	]
 }

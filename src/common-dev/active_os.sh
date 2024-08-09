@@ -29,6 +29,8 @@ function active_operating_system_uname() {
     echo " » Executing Linux logic.."
     
     # Now unshallow for other installs / updates from cache
+    su - vscode
+    source ~/.zshrc
     git -C /home/linuxbrew/.linuxbrew/homebrew/homebrew-core fetch --unshallow
 
   # * MacOS
@@ -42,5 +44,3 @@ function active_operating_system_uname() {
     exit 1
   fi
 }
-
-active_operating_system_uname
