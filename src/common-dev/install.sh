@@ -2,20 +2,32 @@
 
 set -e
 
-source ./library_scripts.sh
+source ./lib/library_scripts.sh
+source ./lib/homebrew-package.sh
 
 # nanolayer is a cli utility which keeps container layers as small as possible
 # source code: https://github.com/devcontainers-contrib/nanolayer
 # `ensure_nanolayer` is a bash function that will find any existing nanolayer installations, 
 # and if missing - will download a temporary copy that automatically get deleted at the end 
 # of the script
+# TODO: Centralize nanolayer location var
 ensure_nanolayer nanolayer_location "v0.5.6"
 
-declare -ar brew_features=(
+# Additional apt packages
+# TODO: gate to apt using distros
+$nanolayer_location \
+    install \
+    apt \
+    "ghcr.io/devcontainers-contrib/features/homebrew-package" \
+    --option packages="gum, pre-commit"
+
+
+  declare -ar brew_features=(
   ansible-lint
   curl
   eslint
   eza
+  fd
   fzf
   gh
   git
@@ -23,6 +35,7 @@ declare -ar brew_features=(
   jq
   markdownlint-cli2
   prettier
+  rg
   shellcheck
   shfmt
   sqlite
@@ -33,18 +46,6 @@ declare -ar brew_features=(
   yq
   )
 
-for feature in "${brew_features[@]}"; do
-  if [[ $(command -v "$feature") ]]; then
-    echo "skipping installed feature $feature"
-    continue
-  fi
-
-  $nanolayer_location \
-      install \
-      devcontainer-feature \
-      "ghcr.io/devcontainers-contrib/features/homebrew-package:1.0.7" \
-      --option package="$feature" --option version="$VERSION"
-done
-
+install_many_via_homebrew "${brew_features}" 
 
 echo 'Done!'

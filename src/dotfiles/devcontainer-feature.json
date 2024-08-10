@@ -1,7 +1,7 @@
 {
 	"name": "Adds personal dotfiles to dev workspace",
 	"id": "dotfiles",
-	"version": "1.0.0",
+	"version": "1.0.2",
 	"description": "Adds dotfiles to dev workspace",
 	"dependsOn": {
 		"ghcr.io/devcontainer-features/common-dev": {}

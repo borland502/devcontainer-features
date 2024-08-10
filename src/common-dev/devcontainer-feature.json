@@ -1,11 +1,29 @@
 {
-	"name": "Nodejs Development Workspace",
-	"id": "nodejs-dev",
-	"version": "1.0.1",
-	"description": "A feature to establish a nodejs developer workspace",
+	"name": "Shared Features Dependency",
+	"id": "common-dev",
+	"version": "1.0.2",
+	"description": "Base feature layer for every other feature in this collection",
 	"installsAfter": [
 		"ghcr.io/devcontainers/features/common-utils",
 		"ghcr.io/meaningful-ooo/devcontainer-features/homebrew",
 		"ghcr.io/devcontainers-contrib/features/homebrew-package"
-	]
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"shakram02.bash-beautify",
+				"ms-vscode.sublime-keybindings",
+				"esbenp.prettier-vscode",
+				"bodil.prettier-toml",
+				"task.vscode-task",
+				"tamasfe.even-better-toml",
+				"mhutchie.git-graph",
+				"donjayamanne.githistory",
+				"ms-playwright.playwright",
+				"timonwong.shellcheck",
+				"foxundermoon.shell-format",
+				"Tyriar.sort-lines"
+			]
+		}
+	}
 }
