@@ -46,6 +46,6 @@ $nanolayer_location \
   yq
   )
 
-install_many_via_homebrew "${brew_features}" 
+install_many_via_homebrew "${brew_features[@]}"
 
 echo 'Done!'
