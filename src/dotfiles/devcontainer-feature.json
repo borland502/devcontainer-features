@@ -3,7 +3,11 @@
 	"id": "dotfiles",
 	"version": "1.0.2",
 	"description": "Adds dotfiles to dev workspace",
-	"dependsOn": {
-		"ghcr.io/devcontainer-features/common-dev": {}
-	}
+	"installsAfter": [
+		"ghcr.io/devcontainers/features/common-utils",
+		"ghcr.io/meaningful-ooo/devcontainer-features/homebrew",
+		"ghcr.io/devcontainers-contrib/features/homebrew-package",
+		"ghcr.io/devcontainers/features/node"
+		"ghcr.io/devcontainer-features/common-dev"		
+	]
 }
