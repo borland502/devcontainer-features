@@ -1,6 +1,6 @@
 #!/bin/bash -i
 
-set -e
+set -eu
 
 source ./library_scripts.sh
 
@@ -11,33 +11,34 @@ source ./library_scripts.sh
 # of the script
 ensure_nanolayer nanolayer_location "v0.5.6"
 
-declare -ar brew_features=(
-  chezmoi
-  zinit  
-)
+curl -L https://raw.githubusercontent.com/borland502/dasbootstrap/main/bin/dasbootstrap.sh \
+  -o dasbootstrap.sh
 
-source ./active_os.sh && active_operating_system_uname
+chmod +x ./dasbootstrap.sh && ./dasbootstrap.sh
 
-for feature in "${brew_features[@]}"; do
-  $nanolayer_location \
-      install \
-      devcontainer-feature \
-      "ghcr.io/devcontainers-contrib/features/homebrew-package:1.0.7" \
-      --option package="$feature" --option version="$VERSION"
-done
+if ! chezmoi="$(command -v chezmoi)"; then
+	bin_dir="${HOME}/.local/bin"
+	chezmoi="${bin_dir}/chezmoi"
+	echo "Installing chezmoi to '${chezmoi}'" >&2
+	if command -v curl >/dev/null; then
+		chezmoi_install_script="$(curl -fsSL get.chezmoi.io)"
+	elif command -v wget >/dev/null; then
+		chezmoi_install_script="$(wget -qO- get.chezmoi.io)"
+	else
+		echo "To install chezmoi, you must have curl or wget installed." >&2
+		exit 1
+	fi
+	sh -c "${chezmoi_install_script}" -- -b "${bin_dir}"
+	unset chezmoi_install_script bin_dir
+fi
 
-declare -ar npm_features=(
-  nx
-  express-generator
-  express-generator-typescript
-)
+# POSIX way to get script's dir: https://stackoverflow.com/a/29834779/12156188
+script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
 
-for feature in "${npm_features[@]}"; do
-  $nanolayer_location \
-      install \
-      devcontainer-feature \
-      "ghcr.io/devcontainers-contrib/features/npm-package:1.0.3" \
-      --option package="$feature" --option version="$VERSION"
-done
+set -- init --apply --source="${script_dir}"
+
+echo "Running 'chezmoi $*'" >&2
+# exec: replace current process with chezmoi
+exec "$chezmoi" "$@"
 
 echo 'Done!'

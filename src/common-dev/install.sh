@@ -11,8 +11,6 @@ source ./library_scripts.sh
 # of the script
 ensure_nanolayer nanolayer_location "v0.5.6"
 
-source ./active_os.sh && active_operating_system_uname
-
 declare -ar brew_features=(
   ansible-lint
   curl

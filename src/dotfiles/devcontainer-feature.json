@@ -1,10 +1,9 @@
 {
-	"name": "Nodejs Development Workspace",
-	"id": "nodejs-dev",
-	"version": "1.0.1",
-	"description": "A feature to establish a nodejs developer workspace",
-	"installsAfter": [
-		"ghcr.io/devcontainers/features/node",
-		"ghcr.io/devcontainer-features/common-dev"
-	]
+	"name": "Adds personal dotfiles to dev workspace",
+	"id": "dotfiles",
+	"version": "1.0.0",
+	"description": "Adds dotfiles to dev workspace",
+	"dependsOn": {
+		"ghcr.io/devcontainer-features/common-dev": {}
+	}
 }

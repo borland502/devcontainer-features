@@ -1,7 +1,17 @@
 {
   "common-dev": {
     "image": "mcr.microsoft.com/devcontainers/base:1-debian",
-    "features": {}
+    "features": {
+      "ghcr.io/devcontainers/features/common-utils": {
+        "installZsh": true,
+        "configureZshAsDefaultShell": true,
+        "installOhMyZsh": false,
+        "installOhMyZshConfig": false,
+        "upgradePackages": true,
+        "username": "vscode",
+        "nonFreePackages": true
+      }
+    }
   },
   "nodejs-dev": {
     "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
@@ -11,6 +21,12 @@
   },
   "python-dev": {
     "image": "mcr.microsoft.com/devcontainers/python:1-3-bookworm",
+    "features": {
+      "common-dev": {}
+    }
+  },
+  "dotfiles": {
+    "image": "mcr.microsoft.com/devcontainers/base:1-debian",
     "features": {
       "common-dev": {}
     }

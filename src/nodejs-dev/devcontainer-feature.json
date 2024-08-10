@@ -3,8 +3,8 @@
 	"id": "nodejs-dev",
 	"version": "1.0.1",
 	"description": "A feature to establish a nodejs developer workspace",
-	"installsAfter": [
-		"ghcr.io/devcontainers/features/node",
-		"ghcr.io/devcontainer-features/common-dev"
-	]
+	"dependsOn": {
+		"ghcr.io/devcontainers/features/node": {},
+		"ghcr.io/devcontainer-features/common-dev": {}
+	}
 }
