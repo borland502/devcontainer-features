@@ -7,7 +7,7 @@
 		"ghcr.io/devcontainers/features/common-utils",
 		"ghcr.io/meaningful-ooo/devcontainer-features/homebrew",
 		"ghcr.io/devcontainers-contrib/features/homebrew-package",
-		"ghcr.io/devcontainers/features/node"
-		"ghcr.io/devcontainer-features/common-dev"		
+		"ghcr.io/devcontainers/features/node",
+		"ghcr.io/borland502/devcontainer-features/common-dev"		
 	]
 }
