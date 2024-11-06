@@ -6,7 +6,6 @@
 	"dependsOn": {
 		"ghcr.io/devcontainers/features/python": {},
 		"ghcr.io/nikobockerman/devcontainer-features/poetry-persistent-cache:1": {},
-		"ghcr.io/devcontainer-features/common-dev": {},
 		"ghcr.io/devcontainers-contrib/features/pre-commit:2": {}
 	}
 }
