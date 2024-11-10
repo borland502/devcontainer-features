@@ -1,11 +1,9 @@
 {
 	"name": "Python Development Workspace",
 	"id": "python-dev",
-	"version": "1.0.2",
+	"version": "1.1.0",
 	"description": "A feature to establish a python developer workspace",
-	"dependsOn": {
-		"ghcr.io/devcontainers/features/python": {},
-		"ghcr.io/nikobockerman/devcontainer-features/poetry-persistent-cache:1": {},
-		"ghcr.io/devcontainers-contrib/features/pre-commit:2": {}
-	}
+	"installsAfter": [
+		"ghcr.io/borland502/devcontainer-features/common-dev"		
+	]	
 }
