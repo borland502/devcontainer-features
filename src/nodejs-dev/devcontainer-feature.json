@@ -1,13 +1,9 @@
 {
 	"name": "Nodejs Development Workspace",
 	"id": "nodejs-dev",
-	"version": "1.0.2",
+	"version": "1.1.0",
 	"description": "A feature to establish a nodejs developer workspace",
 	"installsAfter": [
-		"ghcr.io/devcontainers/features/common-utils",
-		"ghcr.io/meaningful-ooo/devcontainer-features/homebrew",
-		"ghcr.io/devcontainers-contrib/features/homebrew-package",
-		"ghcr.io/devcontainers/features/node",
 		"ghcr.io/borland502/devcontainer-features/common-dev"		
 	]
 }
