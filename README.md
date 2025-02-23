@@ -21,7 +21,7 @@ A hyper-customized nodejs development image
 
 ```json
 "features": {
-    "ghcr.io/devcontainers/feature-starter/nodejs-dev": {}
+    "ghcr.io/borland502/devcontainer-features/nodejs-dev": {}
 }
 ```
 
@@ -33,6 +33,6 @@ A hyper-customized python image
 
 ```json
 "features": {
-    "ghcr.io/devcontainers/feature-starter/python-dev": {}
+    "ghcr.io/borland502/devcontainer-features/python-dev": {}
 }
 ```
